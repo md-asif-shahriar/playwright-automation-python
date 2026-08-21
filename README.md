@@ -39,6 +39,10 @@ Required variables:
 - `TEST_USER_EMAIL`
 - `TEST_USER_PASSWORD`
 
+Expected authenticated display name:
+
+- `TEST_USER_NAME` (defaults to `Rok Test 123`)
+
 Never commit the `.env` file.
 
 ## Run Tests
