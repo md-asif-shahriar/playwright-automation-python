@@ -39,6 +39,10 @@ Required variables:
 - `TEST_USER_EMAIL`
 - `TEST_USER_PASSWORD`
 
+Expected authenticated display name:
+
+- `TEST_USER_NAME` (defaults to `Rok Test 123`)
+
 Never commit the `.env` file.
 
 ## Run Tests
@@ -54,3 +58,19 @@ pytest --headed
 Verbose:
 
 pytest -v
+
+## Failure Diagnostics
+
+Screenshots are retained in the ignored `test-results/` directory only when a
+test fails.
+
+Capture a trace for failed tests when deeper debugging is required:
+
+pytest --tracing=retain-on-failure
+
+Show complete failure output without line truncation:
+
+pytest --full-failure-output
+
+Treat screenshots and traces as sensitive artifacts because they may contain
+test-account or authenticated-session information.
