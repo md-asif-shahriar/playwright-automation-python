@@ -8,6 +8,7 @@ __pycache__/
 
 #Special files
 docs/login-implementation-plan.md
+test-results/
 
 # Distribution / packaging
 .Python
