@@ -61,10 +61,22 @@ pytest -v
 
 ## Failure Diagnostics
 
-Screenshots are retained in the ignored `test-results/` directory only when a
-test fails.
+Every test run generates the following ignored local reports:
 
-Capture a trace for failed tests when deeper debugging is required:
+- `reports/report.html` - human-readable, self-contained HTML report
+- `reports/junit.xml` - machine-readable JUnit report
+- `reports/execution.log` - sanitized assertion and test status log
+
+Open the HTML report from Git Bash after a test run:
+
+explorer.exe reports/report.html
+
+Screenshots and traces are retained in the ignored `test-results/` directory
+only when a test fails. A viewport screenshot is also embedded in the HTML
+report when the Playwright page is still available.
+
+Failure trace capture is enabled by default. To explicitly run with the same
+setting:
 
 pytest --tracing=retain-on-failure
 
@@ -73,4 +85,8 @@ Show complete failure output without line truncation:
 pytest --full-failure-output
 
 Treat screenshots and traces as sensitive artifacts because they may contain
-test-account or authenticated-session information.
+test-account or authenticated-session information. The generated `reports/`
+directory must be treated as sensitive for the same reason.
+
+For purpose-based setup, execution, reporting, screenshot, and trace commands,
+see `docs/test-reporting-commands.md`.
